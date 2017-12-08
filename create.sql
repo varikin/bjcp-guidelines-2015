@@ -109,5 +109,5 @@ CREATE TABLE stat_type(
 CREATE TABLE stat(
   stat_value FLOAT,
   beer_id REFERENCES beer(beer_id),
-  stat_type_id REFERENCES stat_type(sstat_type_id)
+  stat_type_id REFERENCES stat_type(stat_type_id)
 );
