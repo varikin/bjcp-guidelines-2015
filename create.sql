@@ -60,9 +60,11 @@ create table style_tag (
 );
 
 create table characteristic_ingredient (
-  style_name varchar(100) primary key,
+  style_name varchar(100) not null,
   ingredient varchar(100) not null,
-  ci_note varchar(1000)
+  ci_note varchar(1000),
+  constraint fk_style foreign key (style_name) references style(style_name),
+  constraint characteristic_ingredient_pk primary key (style_name, ingredient)
 );
 
 create table ingredient (
