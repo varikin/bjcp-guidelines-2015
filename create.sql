@@ -60,11 +60,9 @@ create table style_tag (
 );
 
 create table characteristic_ingredient (
-  style_name varchar(100) not null,
+  style_name varchar(100) primary key,
   ingredient varchar(100) not null,
-  ci_note varchar(1000),
-  constraint fk_style foreign key (style_name) references style(style_name),
-  constraint characteristic_ingredient_pk primary key (style_name, ingredient)
+  ci_note varchar(1000)
 );
 
 create table ingredient (
@@ -109,5 +107,5 @@ CREATE TABLE stat_type(
 CREATE TABLE stat(
   stat_value FLOAT,
   beer_id REFERENCES beer(beer_id),
-  stat_type_id REFERENCES stat_type(sstat_type_id)
+  stat_type_id REFERENCES stat_type(stat_type_id)
 );
