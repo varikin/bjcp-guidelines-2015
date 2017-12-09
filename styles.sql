@@ -71,7 +71,7 @@ insert into tag (tag_name, tag_type, tag_description) values ('pacific', 'Region
 
 insert into stat_type (stat_type_name, measuring_unit) values ('srm', 'color');
 insert into stat_type (stat_type_name, measuring_unit) values ('abv', 'alcohol by volume');
-insert into stat_type (stat_type_name, measuring_unit) values ('ibu', 'international bitter units');
+insert into stat_type (stat_type_name, measuring_unit) values ('ibu', 'bitter units');
 insert into stat_type (stat_type_name, measuring_unit) values ('og', 'original gravity');
 insert into stat_type (stat_type_name, measuring_unit) values ('fg', 'final gravity');
 
