@@ -7,6 +7,7 @@ drop table tag;
 drop table style;
 drop table category;
 drop table tag_type;
+drop table stat_type;
 
 create table category (
   category_name varchar(100) primary key,
