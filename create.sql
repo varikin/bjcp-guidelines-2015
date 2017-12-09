@@ -1,14 +1,12 @@
-drop table stat;
 drop table stat_type;
-drop table beer;
 drop table vital_statistic;
 drop table ingredient;
 drop table characteristic_ingredient;
 drop table style_tag;
 drop table tag;
-drop table comparison_style;
 drop table style;
 drop table category;
+drop table tag_type;
 
 create table category (
   category_name varchar(100) primary key,
@@ -31,17 +29,6 @@ create table style (
   constraint fk_category foreign key (category_name) references category(category_name)
 );
 
-create table comparison_style (
-  style_name varchar(100) not null,
-  use_as_compared_style_name varchar(100) not null,
-  style_comparison_note varchar(1000),
-
-  constraint fk_style foreign key (style_name) references style(style_name),
-  constraint fk_use_as_comparision_style foreign key (use_as_compared_style_name) references style(style_name),
-  constraint comparison_style_pk primary key (style_name, use_as_compared_style_name)
-);
-
-drop table tag_type;
 create table tag_type (
   tag_type_name varchar(100) primary key
 );
@@ -79,35 +66,7 @@ create table vital_statistic (
   constraint vital_statistics primary key (style, statistic_type)
 );
 
-CREATE TABLE beer(
-  beer_id INTEGER PRIMARY KEY,
-  beer_name VARCHAR(100),
-  water_type VARCHAR(100),
-  water_amount INTEGER,
-  gallons_brewed INTEGER,
-  yeast_culture_state VARCHAR(100),
-  yeast_culture_starter_flag VARCHAR(100),
-  yeast_culture_type VARCHAR(100),
-  yeast_culture_brand VARCHAR(100),
-  yeast_culture_amount INTEGER,
-  yeast_nutrient_type VARCHAR(100),
-  yeast_nutrient_amount INTEGER,
-  carbonation_form VARCHAR(100),
-  carbonation_vol INTEGER,
-  priming_sugar_type VARCHAR(100),
-  priming_sugar_amount INTEGER,
-  boiling_time INTEGER,
-  brewing_date DATETIME,
-  bottling_date DATETIME
-);
-
 CREATE TABLE stat_type(
   stat_type_name VARCHAR(20) primary key,
   measuring_unit VARCHAR(20)
-);
-
-CREATE TABLE stat(
-  stat_value FLOAT,
-  beer_id REFERENCES beer(beer_id),
-  stat_type_id REFERENCES stat_type(stat_type_id)
 );
